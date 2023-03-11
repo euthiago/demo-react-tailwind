@@ -1,4 +1,5 @@
 import HourWeather from "./HourWeather"
+import IconClock from "./IconClock"
 import { Hour } from "./vite-env"
 
 
@@ -22,8 +23,20 @@ const renderHours = (hours:Hour[]) =>
 
 export default () => {
 
-	return <div className="p-2 w-full overflow-x-auto flex rounded-lg backdrop-blur-sm bg-opacity-5 bg-white">
-		{ renderHours(hours) }
+	return <div>
+		
+		<div className="uppercase text-[0.7rem] font-semibold flex p-2">
+			<span className="min-w-[50px] text-center flex justify-center">
+				<IconClock />
+			</span>
+			<span>weather by hour</span>
+		</div>
+		<div className="p-2 w-full overflow-x-auto flex rounded-lg backdrop-blur-sm bg-opacity-5 bg-white">
+			
+			{ renderHours(hours) }
+		</div>
+		
+		
 	</div>
 
 }
