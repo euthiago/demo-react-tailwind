@@ -93,8 +93,9 @@ export type ExpectedHourlyForecastResult = {
 
 export type Store = {
 	geoPoint?: GeoPointInfo,
-	geoInfo?: GeoLocation,
+	geoLocation?: GeoLocation,
 	days: Day[],
 	hours: Hour[],
+	fetchHour?: number,
 	setStore: Dispatch<SetStateAction<Store>>
 }
