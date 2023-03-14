@@ -11,11 +11,11 @@ export default ({ day }:{ day:Day } ) =>
 			{ valueOrNow(day.value) }
 		</div> 
 		<div className="text-center">
-			{ day.weather }
+			{ day.shortForecast }
 		</div>
 		<div className="font-semibold text-center grow">
-			{ day.temperature_min }
-			{ day.temperature_max }
+			{ day.temperatureMin }
+			{ day.temperatureMax }
 		</div>
 	</div>
 

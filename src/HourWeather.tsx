@@ -9,10 +9,10 @@ export default ({ hour }:{ hour:Hour } ) =>
 
 	<div className="p-2 border-r-2 border-blue-100 border-opacity-25 last:border-r-0">
 		<div className="font-bold text-center border-b-2 border-blue-100 border-opacity-25">
-			{ valueOrNow(hour.value) }
+			{ valueOrNow(hour.number % 24) }
 		</div> 
 		<div className="text-center">
-			{hour.weather}
+			{hour.shortForecast}
 		</div>
 		<div className="font-semibold text-center ">
 			{hour.temperature}
