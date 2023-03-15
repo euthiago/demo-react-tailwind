@@ -15,19 +15,26 @@ const valueOrNow = (value:number) => {
 }
 
 // mix of props, context props, destructuring and default values example
+// demonstrating a complex flex+css scenario
+// if tailwindcss had first class support for grid template areas
+// this would be significantly simplified (without plugins) 
 export default ({ day }:{ day:Day } ) => {
 
 	const { temperatureRange={ min:day.temperatureMin, max:day.temperatureMax } } = useContext<Store>(StoreContext)
 
-	return	<div className="p-1 flex gap-2 items-center pt-2">
+	return	<div className="p-1 flex gap-2 items-center pt-2 w-full">
 		<div className="font-bold text-center w-[50px]">
 			{ valueOrNow(day.number) }
 		</div> 
-		<div className="flex flex-col grow gap-1 text-sm">
+		<div className="flex flex-col gap-1 text-sm" style={{width:"calc(100% - 50px)"}}>
 
-			<div className="flex">
+			<div className="flex gap-2 ">
 				<div>{ day.temperatureMin }°F</div>
-				<div className="text-sm text-center grow text-ellipsis overflow-hidden">{ day.shortForecast }</div>
+				<div className="flex-1 text-sm text-center min-w-0 ">
+					<div className="whitespace-nowrap text-ellipsis overflow-hidden" >
+						{ day.shortForecast }
+					</div>
+				</div>
 				<div>{ day.temperatureMax }°F</div>
 			</div>
 			<div className="w-full pt-1">

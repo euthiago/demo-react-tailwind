@@ -23,7 +23,7 @@ export default ({ min, max, temperatureRange }:RelativeTempProps) =>{
 
 	return <div className="flex relative w-full">
 		<div className="absolute bottom-0 left-0 rounded-lg h-2 bg-white bg-opacity-25 w-full"></div>
-		<div className="absolute bottom-0 left-0 rounded-lg h-2 bg-orange-600 bg-opacity" style={{ width, marginLeft }}></div>
+		<div className="absolute bottom-0 left-0 rounded-lg h-2 bg-orange-400 bg-opacity" style={{ width, marginLeft }}></div>
 	</div>
 
 }
