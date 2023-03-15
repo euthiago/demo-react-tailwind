@@ -7,7 +7,7 @@ import Hero from './Hero'
 import { Store } from './vite-env'
 import Week from './Week'
 
-const initialContext = {
+const initialContext:Store = {
 	days: [], 
 	hours: [],
 	setStore: () => {}
@@ -17,13 +17,11 @@ const StoreContext = createContext<Store>(initialContext)
 
 function App() {
 
-
-	let [store, setStore] =  useState<Store>(initialContext)
+	const [store, setStore] =  useState<Store>(initialContext)
 
 	useEffect( () => {
 		setTimeout(() => {
 			setStore( (store) => {
-				console.log((new Date()).getHours())
 				return {
 					...store,
 					fetchHour: (new Date()).getHours(),
@@ -41,34 +39,25 @@ function App() {
 		(async () => {
 			if(store.geoPoint){
 				try {
-					let days = await fetchForecast(store.geoPoint)
-					setStore( (store) => {
-						return {
-							...store,
-							days
-						}
-					})
-				} catch(e) {
-					console.log(e)
-				}
-			}
-		})();
 
-		(async () => {
-			if(store.geoPoint){
-				try {
-					let hours = await fetchHourlyForecast(store.geoPoint)
+					const daysForecast = fetchForecast(store.geoPoint)
+					const hoursForecast = fetchHourlyForecast(store.geoPoint)
+
+					const [ days, hours ] = await Promise.all([ daysForecast, hoursForecast ])
+					
 					setStore( (store) => {
 						return {
 							...store,
+							days,
 							hours
 						}
 					})
+
 				} catch(e) {
 					console.log(e)
 				}
 			}
-		})();
+		})()
 
 	}, [store.geoPoint])
 

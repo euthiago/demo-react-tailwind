@@ -16,3 +16,4 @@ Suggested features from here:
 
 -   Allow multiple saved geo points
 -   Use the device location to get the geo point
+-   Show alerts for the selected location

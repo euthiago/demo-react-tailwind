@@ -9,11 +9,9 @@ import { ExpectedHourlyForecastResult, GeoPointInfo, Hour } from "../vite-env"
 export default async (geoPointInfo:GeoPointInfo):Promise<Hour[]> => {
 
 	try {
-
 		const result = await fetch(geoPointInfo.forecastHourly)
 		const expected:ExpectedHourlyForecastResult = await result.json()
 		return expected.properties.periods
-
 	}catch(e){
 		return Promise.reject("Could not fetch the hourly forecast")
 	}
