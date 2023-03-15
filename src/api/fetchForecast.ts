@@ -18,8 +18,13 @@ export default async (geoPointInfo:GeoPointInfo):Promise<Day[]> => {
 			.properties
 			.periods.filter( (_, index) => index % 2 !== 0)
 			.map( (day, index) => {
-				let temperatureMax = day.temperature
-				let temperatureMin = expected.properties.periods[index+1].temperature
+
+				let currentTemp = day.temperature
+				let nextTemp = expected.properties.periods[index+1].temperature
+
+				let temperatureMax = currentTemp > nextTemp ? currentTemp : nextTemp
+				let temperatureMin = currentTemp > nextTemp ? nextTemp : currentTemp
+				
 				return {
 					...day,
 					temperatureMin,

@@ -1,5 +1,6 @@
 import { GeoLocation, Hour } from "./vite-env"
 
+// component with props demonstration
 export default ({ className="", hour, geoLocation }:{ className?:string, hour?:Hour, geoLocation?:GeoLocation }) => 
 	<div className={"min-h-[150px] p-9 flex align-center "+ className}>
 		{ geoLocation && hour && (

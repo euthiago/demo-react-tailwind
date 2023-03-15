@@ -1,19 +1,13 @@
-import { createContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import fetchForecast from './api/fetchForecast'
 import fetchHourlyForecast from './api/fetchHourlyForecast'
 import './App.css'
 import DayHours from './DayHours'
 import Hero from './Hero'
+import StoreContext, { initialContext } from './lib/context'
+import tempRange from './lib/tempRange'
 import { Store } from './vite-env'
 import Week from './Week'
-
-const initialContext:Store = {
-	days: [], 
-	hours: [],
-	setStore: () => {}
-}
-
-const StoreContext = createContext<Store>(initialContext)
 
 function App() {
 
@@ -45,9 +39,12 @@ function App() {
 
 					const [ days, hours ] = await Promise.all([ daysForecast, hoursForecast ])
 					
+					const temperatureRange = tempRange(days)
+
 					setStore( (store) => {
 						return {
 							...store,
+							temperatureRange,
 							days,
 							hours
 						}
@@ -67,7 +64,7 @@ function App() {
 
 				<Hero className='grow' geoLocation={store.geoLocation} hour={ store.hours.length > 0 ? store.hours[0] : undefined } />
 				<DayHours hours={store.hours} fetchHour={store.fetchHour} />
-				<Week days={store.days} />
+				<Week />
 				
 			</div>
 		</StoreContext.Provider>

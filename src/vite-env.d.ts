@@ -6,7 +6,7 @@ export type Forecast = "Mostly Sunny" |  "Light Rain Likely" |  "Mostly Clear" |
 
 export type Day = {
 	name: string,
-	value: number,
+	number: number,
 	shortForecast: Forecast,
 	temperatureMin: number,
 	temperatureMax: number,
@@ -56,7 +56,7 @@ export type ExpectedGeoPointResult = {
 
 export type ExpectedDay = {
 	name: string, 
-	value: number,
+	number: number,
 	shortForecast: Forecast,
 	temperature: number,
 	probabilityOfPrecipitation: {
@@ -96,6 +96,12 @@ export type Store = {
 	geoLocation?: GeoLocation,
 	days: Day[],
 	hours: Hour[],
+	temperatureRange?: TemperatureRange,
 	fetchHour?: number,
 	setStore: Dispatch<SetStateAction<Store>>
+}
+
+export type TemperatureRange = {
+	min: number,
+	max: number
 }
