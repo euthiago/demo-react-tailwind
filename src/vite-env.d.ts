@@ -43,7 +43,7 @@ export type ExpectedAddress = {
 
 export type ExpectedGeoLocationResult = {
 	result: {
-		addresses: ExpectedAddress[]
+		addressMatches: ExpectedAddress[]
 	}
 }
 

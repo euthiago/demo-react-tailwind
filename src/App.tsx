@@ -15,22 +15,7 @@ function App() {
 	const [store, setStore] =  useState<Store>(initialContext)
 
 	useEffect( () => {
-		setTimeout(() => {
-			setStore( (store) => {
-				return {
-					...store,
-					fetchHour: (new Date()).getHours(),
-					geoPoint: {
-						forecast: "https://api.weather.gov/gridpoints/AKQ/92,103/forecast",
-						forecastHourly: "https://api.weather.gov/gridpoints/AKQ/92,103/forecast/hourly"
-					}
-				}
-			})
-		}, 2000)
-	}, [])
-
-	useEffect( () => {
-
+		
 		(async () => {
 			if(store.geoPoint){
 				try {
@@ -55,12 +40,13 @@ function App() {
 					console.log(e)
 				}
 			}
-		})()
+		})();
+		
 
 	}, [store.geoPoint])
 
 	return (
-		<StoreContext.Provider value={ store } >
+		<StoreContext.Provider value={ { ...store, setStore } } >
 			<div className="p-4 gap-4 bg-slate-900 bg-gradient-to-b to-slate-900 from-blue-900 w-full min-h-full flex flex-col text-blue-50">
 
 				<Search />

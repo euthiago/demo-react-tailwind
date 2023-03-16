@@ -1,10 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/jsonp-promise': ^0.1.1
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react': ^3.1.0
   autoprefixer: ^10.4.14
+  jsonp-promise: ^0.1.2
   postcss: ^8.4.21
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -14,7 +16,9 @@ specifiers:
   vitest: ^0.29.2
 
 dependencies:
+  '@types/jsonp-promise': 0.1.1
   autoprefixer: 10.4.14_postcss@8.4.21
+  jsonp-promise: 0.1.2
   postcss: 8.4.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -501,6 +505,10 @@ packages:
 
   /@types/chai/4.3.4:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
+    dev: false
+
+  /@types/jsonp-promise/0.1.1:
+    resolution: {integrity: sha512-Vq5viB1U81s73N1cmAlW1GHLkzg+PMpCQaUqdacuHz8IaXmlp9EDkyxeG0pGJt/BLo6ELAuS2SPh53fGg/sU8w==}
     dev: false
 
   /@types/node/18.15.3:
@@ -1000,6 +1008,10 @@ packages:
 
   /jsonc-parser/3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+    dev: false
+
+  /jsonp-promise/0.1.2:
+    resolution: {integrity: sha512-R9qfMLweZPIPkVLwdvXzio2+L4+d9twytjV/WvxWhdPjz2/OhIR3UxXmmcOcn75GQaf0w+w8O+sYk6uZp5Ee4Q==}
     dev: false
 
   /lilconfig/2.1.0:
