@@ -14,7 +14,7 @@ export default ({ hours, fetchHour=0 }:{hours:Hour[], fetchHour?:number }) => {
 			</span>
 			<span>weather by hour</span>
 		</div>
-		<div className="p-2 w-full overflow-x-auto flex rounded-lg backdrop-blur-sm bg-opacity-5 bg-white">
+		<div className="p-2 w-full overflow-x-auto flex rounded-lg backdrop-blur-sm bg-opacity-5 bg-white scrollbar-thin scrollbar-thumb-slate-300 scrollbar-rounded-sm">
 			{ renderHours(hours.filter( (_,i) => i < 24 ), fetchHour) }
 		</div>
 	</div>

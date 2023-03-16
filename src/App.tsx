@@ -47,13 +47,20 @@ function App() {
 
 	return (
 		<StoreContext.Provider value={ { ...store, setStore } } >
-			<div className="p-4 gap-4 bg-slate-900 bg-gradient-to-b to-slate-900 from-blue-900 w-full min-h-full flex flex-col text-blue-50">
+			<div className='bg-slate-900 bg-gradient-to-b to-slate-900 from-blue-900 w-screen min-h-screen'>
+				<div className="max-w-5xl mx-auto p-4 gap-4 flex flex-col text-blue-50">
 
-				<Search />
-				<Hero className='grow' geoLocation={store.geoLocation} hour={ store.hours.length > 0 ? store.hours[0] : undefined } />
-				<DayHours hours={store.hours} fetchHour={store.fetchHour} />
-				<Week />
-				
+					<Search />
+
+					{ store.days.length > 0 && 
+						<>
+							<Hero className='grow' geoLocation={store.geoLocation} hour={ store.hours.length > 0 ? store.hours[0] : undefined } />
+							<DayHours hours={store.hours} fetchHour={store.fetchHour} />
+							<Week />
+						</>
+					}
+
+				</div>
 			</div>
 		</StoreContext.Provider>
 	)

@@ -22,7 +22,7 @@ export default ({ day }:{ day:Day } ) => {
 
 	const { temperatureRange={ min:day.temperatureMin, max:day.temperatureMax } } = useContext<Store>(StoreContext)
 
-	return	<div className="p-1 flex gap-2 items-center pt-2 w-full">
+	return	<div className="flex gap-2 items-center pt-2 ">
 		<div className="font-bold text-center w-[50px]">
 			{ valueOrNow(day.number) }
 		</div> 
